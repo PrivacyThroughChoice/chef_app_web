@@ -9,6 +9,12 @@
 
 include_recipe 'nginx::default'
 
+%[ default.conf example_ssl.conf ].each do |file|
+  file "/etc/nginx/conf.d/#{file}" do
+    action :delete
+  end
+end
+
 template "/etc/nginx/sites-available/thunr-rails" do
   owner "root"
   group "root"
