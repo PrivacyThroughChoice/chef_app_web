@@ -9,7 +9,7 @@
 
 include_recipe 'nginx::default'
 
-%[ default.conf example_ssl.conf ].each do |file|
+%w[ default.conf example_ssl.conf ].each do |file|
   file "/etc/nginx/conf.d/#{file}" do
     action :delete
   end
