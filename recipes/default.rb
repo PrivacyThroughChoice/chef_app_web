@@ -9,7 +9,7 @@
 
 include_recipe 'nginx::default'
 
-template "/etc/nginx/conf.d/unicorn.conf" do
+template "/etc/nginx/sites-available/thunr-rails.conf" do
   owner "root"
   group "root"
   mode 0644
@@ -17,4 +17,8 @@ template "/etc/nginx/conf.d/unicorn.conf" do
     :servers => [ 'localhost:8080' ]
   )
   notifies :restart, "service[nginx]"
+end
+
+nginx_site 'thunr-rails' do
+  enable true
 end
