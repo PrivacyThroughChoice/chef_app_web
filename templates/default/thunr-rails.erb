@@ -1,5 +1,33 @@
-upstream app_server {
+upstream thunr-rails {
   <% @servers.each do |server| %>
   server <%= server %> fail_timeout=0;
   <% end %>
+}
+
+server {
+  listen                80;
+  server_name           _;
+  root                  /opt/thunr-rails/current/public;
+
+  location / {
+    access_log          off;
+
+    include proxy_params;
+    proxy_redirect off;
+
+    if (-f $request_filename) {
+      access_log          off;
+      expires             max;
+      break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass          http://thunr-rails;
+      break;
+    }
+  }
 }
