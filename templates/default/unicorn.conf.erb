@@ -1,0 +1,5 @@
+upstream app_server {
+  <% @servers.each do |server| %>
+  server <%= server %> fail_timeout=0;
+  <% end %>
+}
