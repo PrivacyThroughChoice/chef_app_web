@@ -14,7 +14,7 @@ template "/etc/nginx/conf.d/unicorn.conf" do
   group "root"
   mode 0644
   variables(
-    :servers => [ 'localhost:3000' ]
+    :servers => [ 'localhost:8080' ]
   )
   notifies :restart, "service[nginx]"
 end
