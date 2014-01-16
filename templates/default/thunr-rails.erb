@@ -12,7 +12,6 @@ server {
   location / {
     access_log          off;
 
-    include proxy_params;
     proxy_redirect off;
 
     if (-f $request_filename) {
