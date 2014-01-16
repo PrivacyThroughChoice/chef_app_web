@@ -9,7 +9,7 @@
 
 include_recipe 'nginx::default'
 
-template "/etc/nginx/sites-available/thunr-rails.conf" do
+template "/etc/nginx/sites-available/thunr-rails" do
   owner "root"
   group "root"
   mode 0644
