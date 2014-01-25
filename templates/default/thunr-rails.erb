@@ -13,6 +13,7 @@ server {
     access_log          off;
 
     proxy_redirect off;
+    proxy_set_header Host $host;
 
     if (-f $request_filename) {
       access_log          off;
