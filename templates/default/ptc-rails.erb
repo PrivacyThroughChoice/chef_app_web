@@ -1,4 +1,4 @@
-upstream thunr-rails {
+upstream ptc-rails {
   <% @servers.each do |server| %>
   server <%= server %> fail_timeout=0;
   <% end %>
@@ -7,7 +7,7 @@ upstream thunr-rails {
 server {
   listen                80;
   server_name           _;
-  root                  /opt/thunr-rails/current/public;
+  root                  /opt/ptc-rails/current/public;
 
   location / {
     access_log          off;
@@ -26,7 +26,7 @@ server {
     }
 
     if (!-f $request_filename) {
-      proxy_pass          http://thunr-rails;
+      proxy_pass          http://ptc-rails;
       break;
     }
   }
