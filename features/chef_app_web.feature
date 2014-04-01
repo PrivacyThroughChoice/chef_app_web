@@ -8,5 +8,5 @@ Background:
 
   Given I have provisioned the following infrastructure:
   | Server Name         | Operating System    | Version   | Chef Version    | Run List         |
-  | thunr-web-ubuntu-1204 | ubuntu              | 12.04     | 11.8.0          | thunr-web::default |
+  | chef_app_web-ubuntu-1204 | ubuntu              | 12.04     | 11.8.0          | chef_app_web::default |
   And I have run Chef

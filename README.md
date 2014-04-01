@@ -1,4 +1,4 @@
-# thunr-web cookbook
+# chef_app_web cookbook
 
 # Requirements
 
@@ -10,4 +10,3 @@
 
 # Author
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)

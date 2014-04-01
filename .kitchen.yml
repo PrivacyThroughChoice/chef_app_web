@@ -11,7 +11,7 @@ platforms:
 
 suites:
 - name: default
-  run_list: ["recipe[thunr-web]", "recipe[minitest-handler]"]
+  run_list: ["recipe[chef_app_web]", "recipe[minitest-handler]"]
   attributes: {}
 settings:
   parallel: true

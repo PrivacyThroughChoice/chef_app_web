@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: thunr-web
+# Cookbook Name:: chef_app_web
 # Recipe:: default
 #
-# Copyright (C) 2013 Fraser Scott
+# Copyright (C) 2014 Privacy Through Choice
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -15,7 +15,7 @@ include_recipe 'nginx::default'
   end
 end
 
-template "/etc/nginx/sites-available/thunr-rails" do
+template "/etc/nginx/sites-available/ptc-rails" do
   owner "root"
   group "root"
   mode 0644
@@ -25,6 +25,6 @@ template "/etc/nginx/sites-available/thunr-rails" do
   notifies :restart, "service[nginx]"
 end
 
-nginx_site 'thunr-rails' do
+nginx_site 'ptc-rails' do
   enable true
 end
